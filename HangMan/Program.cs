@@ -36,20 +36,35 @@ namespace HangMan
 
                 if (answerCharList.Contains(playerGuess))
                 {
+                    //foreach (string item in answerCharList)
+                    //{
+                    //    if(playerGuess == item)
+                    //    {
+                    //        hiddenWord[answerCharList.IndexOf(item)] = Convert.ToString(item);
+                    //    }
+                    //}
+
                     for (int i = 0; i < answerCharList.Count; i++)
                     {
-                        if (answerCharList[i] == playerGuess)
+                        if (char.ToUpper(answerCharList[i]).Equals(char.ToUpper(playerGuess)))
                         {
-                            hiddenWord[i] = Convert.ToString(playerGuess);
+                            hiddenWord[i] = Convert.ToString(answerCharList[i]);
                         }
                     }
                 }
 
+                
 
+                Console.Clear();
 
+                if (!answerCharList.Contains(playerGuess))
+                {
+                    Console.WriteLine("Wrong guess, guess again!");
+                }
 
+                attempts++;
             }
-
+            Console.WriteLine("You Lose, try again next time!");
 
         }
     }
