@@ -10,7 +10,8 @@ namespace HangMan
         {
             List<string> listWords = new List<string> {
             "jacked", "append", "ripped", "lambda", "caucus", "hugged",
-            "skinny", "object", "Squint", "speedy", "ascend"
+            "skinny", "object", "Squint", "speedy", "ascend", 
+            "candymaker", "blackmail", "coconut", "fabric", "auspicious", "fallout", "bears", "crunch", "loop"
             };
 
 
@@ -29,10 +30,10 @@ namespace HangMan
 
             int failedAttempts = 0;
 
-            while (failedAttempts < randWord.Length)
+            while (failedAttempts < randWord.Length + 3)
             {
                 Console.WriteLine(string.Join(" ", hiddenWord));
-                Console.WriteLine("Guess a letter!");
+                Console.WriteLine("Guess A Letter!");
                 char playerGuess = Convert.ToChar(Console.ReadLine());
 
                 if (answerCharList.Contains(playerGuess))
@@ -65,6 +66,7 @@ namespace HangMan
 
             }
 
+            Console.Clear();
             Console.WriteLine("You Lose, try again next time!");
 
         }
