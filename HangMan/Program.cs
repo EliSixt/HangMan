@@ -35,15 +35,6 @@ namespace HangMan
                 Console.WriteLine("Guess a letter!");
                 char playerGuess = Convert.ToChar(Console.ReadLine());
 
-
-                //foreach (string item in answerCharList)
-                //{
-                //    if(playerGuess == item)
-                //    {
-                //        hiddenWord[answerCharList.IndexOf(item)] = Convert.ToString(item);
-                //    }
-                //}
-                
                 if (answerCharList.Contains(playerGuess))
                 {
 
@@ -63,6 +54,12 @@ namespace HangMan
                 {
                     Console.WriteLine("Wrong guess, guess again!");
                     failedAttempts++;
+                }
+
+                if (!hiddenWord.Contains("_"))
+                {
+                    Console.WriteLine("You Win!!!");
+                    return;
                 }
 
 
