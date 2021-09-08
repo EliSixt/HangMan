@@ -6,11 +6,11 @@ namespace HangMan
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             List<string> listWords = new List<string> {
-            "jacked", "append", "ripped", "lambda", "Caucus", "Hugged",
-            "Skinny", "Object", "Squint", "Speedy", "Ascend"
+            "jacked", "append", "ripped", "lambda", "caucus", "hugged",
+            "skinny", "object", "Squint", "speedy", "ascend"
             };
 
 
@@ -26,23 +26,27 @@ namespace HangMan
                 hiddenWord.Add("_");
             }
 
-            int attempts = 0;
 
-            while (attempts < randWord.Length + 3)
+            int failedAttempts = 0;
+
+            while (failedAttempts < randWord.Length)
             {
                 Console.WriteLine(string.Join(" ", hiddenWord));
                 Console.WriteLine("Guess a letter!");
                 char playerGuess = Convert.ToChar(Console.ReadLine());
 
+
+                //foreach (string item in answerCharList)
+                //{
+                //    if(playerGuess == item)
+                //    {
+                //        hiddenWord[answerCharList.IndexOf(item)] = Convert.ToString(item);
+                //    }
+                //}
+                
                 if (answerCharList.Contains(playerGuess))
                 {
-                    //foreach (string item in answerCharList)
-                    //{
-                    //    if(playerGuess == item)
-                    //    {
-                    //        hiddenWord[answerCharList.IndexOf(item)] = Convert.ToString(item);
-                    //    }
-                    //}
+
 
                     for (int i = 0; i < answerCharList.Count; i++)
                     {
@@ -53,17 +57,17 @@ namespace HangMan
                     }
                 }
 
-                
-
                 Console.Clear();
 
                 if (!answerCharList.Contains(playerGuess))
                 {
                     Console.WriteLine("Wrong guess, guess again!");
+                    failedAttempts++;
                 }
 
-                attempts++;
+
             }
+
             Console.WriteLine("You Lose, try again next time!");
 
         }
