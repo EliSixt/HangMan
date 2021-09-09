@@ -10,7 +10,7 @@ namespace HangMan
         {
             List<string> listWords = new List<string> {
             "jacked", "append", "ripped", "lambda", "caucus", "hugged",
-            "skinny", "object", "Squint", "speedy", "ascend", 
+            "skinny", "object", "Squint", "speedy", "ascend",
             "candymaker", "blackmail", "coconut", "fabric", "auspicious", "fallout", "bears", "crunch", "loop"
             };
 
@@ -19,12 +19,12 @@ namespace HangMan
             string randWord = listWords[rng.Next(listWords.Count())];
 
             List<char> answerCharList = new List<char>();
-            List<string> hiddenWord = new List<string>();
+            List<char> hiddenWord = new List<char>();
 
             foreach (char item in randWord)
             {
                 answerCharList.Add(item);
-                hiddenWord.Add("_");
+                hiddenWord.Add('_');
             }
 
 
@@ -35,6 +35,7 @@ namespace HangMan
                 Console.WriteLine(string.Join(" ", hiddenWord));
                 Console.WriteLine("Guess A Letter!");
                 char playerGuess = Convert.ToChar(Console.ReadLine());
+                Console.Clear();
 
                 if (answerCharList.Contains(playerGuess))
                 {
@@ -44,26 +45,22 @@ namespace HangMan
                     {
                         if (char.ToUpper(answerCharList[i]).Equals(char.ToUpper(playerGuess)))
                         {
-                            hiddenWord[i] = Convert.ToString(answerCharList[i]);
+                            hiddenWord[i] = answerCharList[i];
                         }
+
                     }
                 }
-
-                Console.Clear();
-
-                if (!answerCharList.Contains(playerGuess))
+                else if (!answerCharList.Contains(playerGuess))
                 {
                     Console.WriteLine("Wrong guess, guess again!");
                     failedAttempts++;
                 }
 
-                if (!hiddenWord.Contains("_"))
+                if (!hiddenWord.Contains('_'))
                 {
                     Console.WriteLine("You Win!!!");
                     return;
                 }
-
-
             }
 
             Console.Clear();
