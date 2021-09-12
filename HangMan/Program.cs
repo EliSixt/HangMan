@@ -37,11 +37,6 @@ namespace HangMan
                 char playerGuess = ' ';
 
 
-
-
-
-
-
                 bool notALetter = true;
                 while (notALetter)
                 {
@@ -58,42 +53,7 @@ namespace HangMan
                         Console.WriteLine("invalid, Please enter only one letter.");
                     }
 
-                    //if (Char.IsLetter(playerGuess))
-                    //{
-
-                    //    playerGuess = char.ToLower(playerGuess);
-                    //    notALetter = false;
-                    //}
-                    //else 
-                    //{
-                    //    Console.WriteLine("invalid, Please enter only one letter.");
-                    //}
-
                 }
-
-
-
-
-
-                //do
-                //{
-                //    char playerGuess = char.ToLower(userInput);
-                //} while (char.IsLetter(userInput));
-                //if (!char.IsLetter(userInput))
-                //{
-                //    Console.Clear();
-                //    Console.WriteLine("Please write one letter.");
-                //    //char userInput = Convert.ToChar(Console.Read());
-                //    char userInput = Convert.ToChar(Console.Read());
-
-                //}
-                //while ()
-                //{
-                //    char playerGuess = char.ToLower(userInput);
-                //}
-
-
-
 
                 Console.Clear();
 
