@@ -33,8 +33,68 @@ namespace HangMan
             while (failedAttempts < randWord.Length + 3)
             {
                 Console.WriteLine(string.Join(" ", hiddenWord));
-                Console.WriteLine("Guess A Letter!");
-                char playerGuess = Convert.ToChar(Console.ReadLine());
+
+                char playerGuess = ' ';
+
+
+
+
+
+
+
+                bool notALetter = true;
+                while (notALetter)
+                {
+                    Console.WriteLine("Guess a letter!");
+                    var input = Console.ReadLine();
+                    bool conversionSuccess = char.TryParse(input,out playerGuess);
+                    
+                    if(conversionSuccess)
+                    {
+                        notALetter = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("invalid, Please enter only one letter.");
+                    }
+
+                    //if (Char.IsLetter(playerGuess))
+                    //{
+
+                    //    playerGuess = char.ToLower(playerGuess);
+                    //    notALetter = false;
+                    //}
+                    //else 
+                    //{
+                    //    Console.WriteLine("invalid, Please enter only one letter.");
+                    //}
+
+                }
+
+
+
+
+
+                //do
+                //{
+                //    char playerGuess = char.ToLower(userInput);
+                //} while (char.IsLetter(userInput));
+                //if (!char.IsLetter(userInput))
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("Please write one letter.");
+                //    //char userInput = Convert.ToChar(Console.Read());
+                //    char userInput = Convert.ToChar(Console.Read());
+
+                //}
+                //while ()
+                //{
+                //    char playerGuess = char.ToLower(userInput);
+                //}
+
+
+
+
                 Console.Clear();
 
                 if (answerCharList.Contains(playerGuess))
@@ -43,7 +103,7 @@ namespace HangMan
 
                     for (int i = 0; i < answerCharList.Count; i++)
                     {
-                        if (char.ToUpper(answerCharList[i]).Equals(char.ToUpper(playerGuess)))
+                        if (char.ToUpper(answerCharList[i]).Equals(char.ToUpper(playerGuess)))  // case insensitive comparison
                         {
                             hiddenWord[i] = answerCharList[i];
                         }
