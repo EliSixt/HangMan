@@ -7,8 +7,5 @@ The player has, the hidden word's length plus three, attempts to try and guess a
 
 The goal is to guess all the letters of the hidden word before running out of attempts.
 
-### Getting Started
--This game runs in the console of the code editor.
-
 ### 📃 Credits 
 Elias Sixtos
